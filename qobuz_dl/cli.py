@@ -177,7 +177,9 @@ def main():
         track_format=arguments.track_format or track_format,
         smart_discography=arguments.smart_discography or smart_discography,
     )
-    qobuz.initialize_client(email, password, app_id, secrets)
+    qobuz.initialize_client(
+        email, password, app_id, secrets, config["DEFAULT"].get("user_auth_token")
+    )
 
     _handle_commands(qobuz, arguments)
 
